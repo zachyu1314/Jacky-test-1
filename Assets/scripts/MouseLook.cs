@@ -1,36 +1,32 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SimpleCamera : MonoBehaviour
 {
-    public Transform playerBody; // Drag Player here in Inspector
-    public float sensitivity = 200f; // Increased for better feel
+    public Transform playerBody; // This MUST be assigned in the Inspector
+    public float sensitivity = 15f; 
     private float xRotation = 0f;
+    private Vector2 lookInput;
 
-    void Start()
+    public void OnLook(InputAction.CallbackContext context)
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        
-        // Ensure camera is a child
-        if (playerBody != null)
-        {
-            transform.SetParent(playerBody, true);
-        }
+        lookInput = context.ReadValue<Vector2>();
+        if (context.canceled) lookInput = Vector2.zero;
     }
 
     void Update()
     {
         if (playerBody == null) return;
 
-        // Get Input
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+        float mouseX = lookInput.x * sensitivity * Time.deltaTime;
+        float mouseY = lookInput.y * sensitivity * Time.deltaTime;
 
-        // Vertical Look (Camera)
+        // Vertical Look (Up/Down) - Rotates only the Camera
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        // Horizontal Look (Player Body)
+        // Horizontal Look (Left/Right) - Rotates the entire Player
         playerBody.Rotate(Vector3.up * mouseX);
     }
 }
