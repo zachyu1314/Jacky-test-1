@@ -4,9 +4,24 @@ using UnityEngine.InputSystem;
 public class SimpleCamera : MonoBehaviour
 {
     public Transform playerBody; // This MUST be assigned in the Inspector
-    public float sensitivity = 15f; 
-    private float xRotation = 0f;
+    public float sensitivity = 220f;
+    public float mouseSensitivity = 0.12f;
+    public float minPitch = -70f;
+    public float maxPitch = 70f;
+    public bool mobileMode = true;
+
+    private float yaw;
+    private float pitch;
     private Vector2 lookInput;
+    void Start()
+    {
+        if (playerBody != null)
+        {
+            yaw = playerBody.eulerAngles.y;
+        }
+
+        pitch = NormalizeAngle(transform.localEulerAngles.x);
+    }
 
     public void OnLook(InputAction.CallbackContext context)
     {
@@ -18,15 +33,40 @@ public class SimpleCamera : MonoBehaviour
     {
         if (playerBody == null) return;
 
-        float mouseX = lookInput.x * sensitivity * Time.deltaTime;
-        float mouseY = lookInput.y * sensitivity * Time.deltaTime;
+        Vector2 lookDelta = GetLookDelta();
+        yaw += lookDelta.x;
+        pitch -= lookDelta.y;
+        pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
 
-        // Vertical Look (Up/Down) - Rotates only the Camera
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        // PUBG / Roblox style mobile look: drag on the right side turns the player,
+        // while the camera only handles vertical pitch.
+        playerBody.rotation = Quaternion.Euler(0f, yaw, 0f);
+        transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+    }
 
-        // Horizontal Look (Left/Right) - Rotates the entire Player
-        playerBody.Rotate(Vector3.up * mouseX);
+    private Vector2 GetLookDelta()
+    {
+        if (mobileMode)
+        {
+            // Use the existing on-screen right-stick / gamepad path for mobile mode.
+            return lookInput * sensitivity * Time.deltaTime;
+        }
+
+        return lookInput * mouseSensitivity;
+    }
+
+    public void SetMobileMode(bool enabled)
+    {
+        mobileMode = enabled;
+    }
+
+    private float NormalizeAngle(float angle)
+    {
+        if (angle > 180f)
+        {
+            angle -= 360f;
+        }
+
+        return angle;
     }
 }

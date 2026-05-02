@@ -19,7 +19,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void OnMove(InputAction.CallbackContext context) => moveInput = context.ReadValue<Vector2>();
-    public void OnJump(InputAction.CallbackContext context) { if (context.started) velocity.y = jumpForce; }
+    public void OnJump(InputAction.CallbackContext context) { if (context.started) Jump(); }
+    public void Jump() => velocity.y = jumpForce;
 
     void Update()
     {

@@ -9247,8 +9247,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38
-  m_fontSizeBase: 38
+  m_fontSize: 51.7
+  m_fontSizeBase: 51.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9394,8 +9394,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.61
-  m_fontSizeBase: 35.61
+  m_fontSize: 54
+  m_fontSizeBase: 54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9600,11 +9600,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleCamera
   playerBody: {fileID: 1290476071}
-  sensitivity: 220
-  mouseSensitivity: 0.3
+  sensitivity: 0.18
+  mouseSensitivity: 4
+  touchLookStartX: 0.5
   minPitch: -70
   maxPitch: 70
-  mobileMode: 1
 --- !u!114 &330585552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14900,8 +14900,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 196, y: -57.183}
-  m_SizeDelta: {x: 348.2714, y: 65.3009}
+  m_AnchoredPosition: {x: 392, y: -178.06}
+  m_SizeDelta: {x: 453.52295, y: 85.03558}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &503260828
 MonoBehaviour:
@@ -18955,8 +18955,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -128.3354, y: 70.565}
-  m_SizeDelta: {x: 34.3923, y: 34.393}
+  m_AnchoredPosition: {x: -323, y: 260.37927}
+  m_SizeDelta: {x: 71.981445, y: 71.981384}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663294658
 MonoBehaviour:
@@ -27923,7 +27923,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974330171}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -27933,8 +27933,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -187.59, y: -100.98}
-  m_SizeDelta: {x: 152.9, y: 152.9}
+  m_AnchoredPosition: {x: -349, y: -216}
+  m_SizeDelta: {x: 268.5426, y: 268.5426}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &974330173
 MonoBehaviour:
@@ -32830,8 +32830,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -76.934, y: -73}
-  m_SizeDelta: {x: 96.932, y: 96.9345}
+  m_AnchoredPosition: {x: -148.77, y: -147.68}
+  m_SizeDelta: {x: 131.90723, y: 131.91003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1199966581
 MonoBehaviour:
@@ -40117,7 +40117,6 @@ GameObject:
   - component: {fileID: 1290476073}
   - component: {fileID: 1290476072}
   - component: {fileID: 1290476078}
-  - component: {fileID: 1290476080}
   m_Layer: 0
   m_Name: default
   m_TagString: Player
@@ -40457,28 +40456,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Kill
   respawnPoint: {fileID: 1161419640}
   Player: {fileID: 1290476070}
---- !u!114 &1290476080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290476070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c31c58c52b34a959b95b7f6a04cdf42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ControlModeToggle
-  mobileUI: {fileID: 401063288}
-  crosshair: {fileID: 100276058}
-  attackButton: {fileID: 974330171}
-  jumpButton: {fileID: 663294656}
-  respawnButton: {fileID: 503260826}
-  joystickLook: {fileID: 1577955168}
-  joystickMove: {fileID: 1890849354}
-  mobileIcon: {fileID: 1199966579}
-  cameraController: {fileID: 330585551}
-  mobileMode: 1
 --- !u!4 &1293867731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 94e6f4839a6064764a145074584e43b6, type: 3}
@@ -47796,10 +47773,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2044761799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -0.9888916, y: 0.000072479}
-  m_SizeDelta: {x: 502.8059, y: 221.91}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -906, y: -613}
+  m_SizeDelta: {x: 1291.956, y: 954.9072}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1577955171
 MonoBehaviour:
@@ -55985,8 +55962,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 101, y: 95.03}
-  m_SizeDelta: {x: 127.4127, y: 127.4127}
+  m_AnchoredPosition: {x: 241, y: 242}
+  m_SizeDelta: {x: 176.0195, y: 176.0195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1890849356
 MonoBehaviour:
